@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Solar</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Header Start -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="img/Logo-3.png" alt="Solar Logo" class="logo-img">
+                <span class="logo-text">Environ Energy</span>
+            </div>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#gov-initiatives" class="nav-link">Schemes</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#solutions" class="nav-link">Solutions</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#calculator" class="estimate-btn">Get Solar Estimate</a>
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+<!-- Video Background Section Start -->
+<section id="hero" class="hero-video-section">
+    <video class="hero-video" loop autoplay muted playsinline>
+        <source src="img/S-vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay">
+        <h1>Harness</h1><span class="sub">the Power of the Sun</span>
+        <p>Innovative Solar Solutions for a Sustainable Future</p>
+    </div>
+</section>
+<!-- Video Background Section End -->
+
+<section class="savings-calculator" id="calculator">
+    <div class="calculator-container">
+        <h2>Calculate Your Savings</h2>
+        <p>Explore the Potential of Solar Energy and Start Saving From Day 1!</p>
+
+        <div class="calculator">
+            <div class="calculator-layout">
+                <!-- Left Side - Inputs -->
+                <div class="calculator-inputs">
+
+                    
+                    <div class="input-group">
+                        <label for="solar-purpose">Do You Need Solar For</label>
+                        <select id="solar-purpose">
+                            <option value="Home">Home</option>
+                            <option value="Commercial">Commercial</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group" id="monthly-bill-section">
+                        <label for="monthly-bill">Enter Your Monthly Electricity Bill (in ₹)</label>
+                        <input type="number" id="monthly-bill" placeholder="₹" min="0" value="2500">
+                    </div>
+                    
+                    <div class="input-group" id="system-size-section" style="display: none;">
+                        <label for="system-size-input">Enter System Size (kW)</label>
+                        <input type="number" id="system-size-input" min="0" step="0.1" value="1">
+                    </div>
+                    
+                    <div class="calculation-toggle">
+                        <a href="#" id="toggle-calculation-method">Or calculate savings using System size(kW)</a>
+                    </div>
+                </div>
+
+                <!-- Right Side - Results Grid -->
+                <div class="calculator-results">
+                    <div class="results-grid">
+                        <div class="result-card" data-tooltip="Recommended solar system capacity">
+                            <div class="result-icon">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23666' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/%3E%3C/svg%3E" alt="System Size">
+                            </div>
+                            <div class="result-content">
+                                <h4>System Size</h4>
+                                <p id="system-size">3 kW</p>
+                            </div>
+                        </div>
+                        
+                        <div class="result-card" data-tooltip="Required rooftop space for installation">
+                            <div class="result-icon">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23666' viewBox='0 0 24 24'%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E" alt="Space Required">
+                            </div>
+                            <div class="result-content">
+                                <h4>Space Required</h4>
+                                <p id="space-required">238 sqft</p>
+                            </div>
+                        </div>
+
+                        <div class="result-card" data-tooltip="Total electricity units generated per year">
+                            <div class="result-icon">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23666' viewBox='0 0 24 24'%3E%3Cpath d='M12 2v20l-7-3v-14l7-3z'/%3E%3Cpath d='M12 2l7 3v14l-7 3'/%3E%3C/svg%3E" alt="Energy Generated">
+                            </div>
+                            <div class="result-content">
+                                <h4>Annual Energy Generated</h4>
+                                <p id="energy-generated">4,286 Units</p>
+                            </div>
+                        </div>
+
+                        <div class="result-card" data-tooltip="Money saved on electricity bills yearly">
+                            <div class="result-icon">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300C853' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E" alt="Annual Savings">
+                            </div>
+                            <div class="result-content">
+                                <h4>Annual Savings</h4>
+                                <p id="annual-savings">₹ 30,000</p>
+                            </div>
+                        </div>
+
+                        <div class="result-card" data-tooltip="Total system cost before government subsidy">
+                            <div class="result-icon">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23666' viewBox='0 0 24 24'%3E%3Cpath d='M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z'/%3E%3C/svg%3E" alt="Price">
+                            </div>
+                            <div class="result-content">
+                                <h4>Price (Excluding Subsidy & GST)</h4>
+                                <p id="price-excluding-subsidy">₹ 1,99,138</p>
+                            </div>
+                        </div>
+
+                        <div class="result-card" data-tooltip="Government subsidy amount you'll receive">
+                            <div class="result-icon">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23666' viewBox='0 0 24 24'%3E%3Cpath d='M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z'/%3E%3C/svg%3E" alt="Subsidy">
+                            </div>
+                            <div class="result-content">
+                                <h4>Subsidy</h4>
+                                <p id="subsidy">₹ 78,000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Action Buttons -->
+        <div class="calculator-actions">
+            <button id="get-quote" class="btn primary-action">Get Free Quote</button>
+        </div>
+    </div>
+</section>
+
+<!-- Quote Request Modal -->
+<div id="quoteModal" class="quote-modal">
+    <div class="quote-modal-content">
+        <div class="quote-modal-header">
+            <h3>Get Your Free Solar Quote</h3>
+            <span class="close-quote-modal" id="closeQuoteModal">&times;</span>
+        </div>
+        <div class="quote-modal-body">
+            <div class="quote-summary">
+                <h4>Your Solar System Details</h4>
+                <div class="quote-details">
+                    <div class="quote-item">
+                        <span>System Size:</span>
+                        <span id="quote-system-size">3.6 kW</span>
+                    </div>
+                    <div class="quote-item">
+                        <span>Annual Energy:</span>
+                        <span id="quote-energy">5,184 Units</span>
+                    </div>
+                    <div class="quote-item">
+                        <span>Annual Savings:</span>
+                        <span id="quote-savings">₹ 36,000</span>
+                    </div>
+                    <div class="quote-item" id="quote-price-item">
+                        <span>Total Cost:</span>
+                        <span id="quote-price">₹ 2,00,000</span>
+                    </div>
+                    <div class="quote-item" id="quote-subsidy-item">
+                        <span>Government Subsidy:</span>
+                        <span id="quote-subsidy">₹ 78,000</span>
+                    </div>
+                </div>
+            </div>
+            
+            <form id="quoteForm" class="quote-form">
+                <h4>Your Contact Information</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quote-name">Full Name *</label>
+                        <input type="text" id="quote-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quote-email">Email Address *</label>
+                        <input type="email" id="quote-email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quote-phone">Phone Number *</label>
+                        <input type="tel" id="quote-phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quote-city">City *</label>
+                        <input type="text" id="quote-city" name="city" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="quote-address">Property Address</label>
+                    <textarea id="quote-address" name="address" rows="3" placeholder="Enter your property address for site assessment"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quote-roof-type">Roof Type</label>
+                        <select id="quote-roof-type" name="roofType">
+                            <option value="">Select Roof Type</option>
+                            <option value="concrete">Concrete/RCC</option>
+                            <option value="tile">Tile Roof</option>
+                            <option value="metal">Metal Roof</option>
+                            <option value="asbestos">Asbestos</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quote-property-type">Property Type</label>
+                        <select id="quote-property-type" name="propertyType">
+                            <option value="">Select Property Type</option>
+                            <option value="independent-house">Independent House</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="villa">Villa</option>
+                            <option value="commercial">Commercial Building</option>
+                            <option value="industrial">Industrial</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="quote-monthly-bill">Current Monthly Electricity Bill (₹)</label>
+                    <input type="number" id="quote-monthly-bill" name="monthlyBill" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="quote-timeline">Installation Timeline</label>
+                    <select id="quote-timeline" name="timeline">
+                        <option value="">When do you want to install?</option>
+                        <option value="immediately">Immediately (Within 1 month)</option>
+                        <option value="1-3-months">1-3 months</option>
+                        <option value="3-6-months">3-6 months</option>
+                        <option value="6-12-months">6-12 months</option>
+                        <option value="just-exploring">Just exploring options</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quote-notes">Additional Requirements/Notes</label>
+                    <textarea id="quote-notes" name="notes" rows="3" placeholder="Any specific requirements or questions?"></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeQuoteModal()">Cancel</button>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Get Free Quote
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Feature Start -->
+
+    <!-- About Start -->
+    <div class="container-xxl py-5" id="about">
+        <div class="container">
+            <!-- About Header -->
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h6 class="text-primary">About Us</h6>
+                <h1 class="mb-4">Powering a Sustainable Future with Solar Innovation</h1>
+            </div>
+    
+            <!-- Mission Cards -->
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <div class="about-card">
+                        <div class="icon-box mb-4">
+                            <i class="fas fa-solar-panel fa-3x text-primary"></i>
+                        </div>
+                        <h4>Our Mission</h4>
+                        <p>Revolutionizing energy consumption through innovative solar solutions that empower communities and protect our planet.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="about-card" style="animation-delay: 0.2s;">
+                        <div class="icon-box mb-4">
+                            <i class="fas fa-leaf fa-3x text-primary"></i>
+                        </div>
+                        <h4>Our Vision</h4>
+                        <p>Creating a world where clean, renewable energy is accessible to all, driving sustainable development and environmental preservation.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="about-card" style="animation-delay: 0.4s;">
+                        <div class="icon-box mb-4">
+                            <i class="fas fa-handshake fa-3x text-primary"></i>
+                        </div>
+                        <h4>Our Values</h4>
+                        <p>Committed to excellence, innovation, sustainability, and customer satisfaction in everything we do.</p>
+                    </div>
+                </div>
+            </div>
+    
+
+    <!-- About End -->
+
+    <!-- Government Initiatives Section Start -->
+    <section class="gov-initiatives" id="gov-initiatives">
+        <div class="container">
+            <div class="section-header text-center">
+                <h6 class="section-subtitle">Government Initiatives</h6>
+                <h2 class="section-title">Solar Energy Schemes in India</h2>
+                <p class="section-description">Empowering India's transition to clean energy through innovative government schemes</p>
+            </div>
+
+            <div class="initiatives-grid">
+                <!-- PM Suryoday Yojana -->
+                <div class="initiative-card featured">
+                    <div class="card-header">
+                        <div class="scheme-badge">New</div>
+                        <h3>PM Suryoday Yojana</h3>
+                        <p class="scheme-tagline">1 Crore Homes to Go Solar</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="scheme-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-home"></i>
+                                <span>1 Crore Homes</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>40% Subsidy</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>300 Units Free</span>
+                            </div>
+                        </div>
+                        <div class="scheme-details">
+                            <h4>Key Benefits</h4>
+                            <ul>
+                                <li>Substantial reduction in electricity bills</li>
+                                <li>Government subsidy up to 40%</li>
+                                <li>Free electricity up to 300 units</li>
+                                <li>Easy financing options</li>
+                            </ul>
+                        </div>
+                        <div class="scheme-actions">
+                            <a href="#" class="learn-more-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                            <button class="view-scheme-btn" onclick="openSchemeModal('pm-suryoday')">
+                                <i class="fas fa-image"></i> View Official Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PM-KUSUM -->
+                <div class="initiative-card">
+                    <div class="card-header">
+                        <h3>PM-KUSUM</h3>
+                        <p class="scheme-tagline">Solar Power for Agriculture</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="scheme-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="scheme-details">
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li>Solar pump installation</li>
+                                <li>Grid-connected solar power</li>
+                                <li>30% subsidy on project cost</li>
+                                <li>Maximum support of ₹2.5L</li>
+                            </ul>
+                        </div>
+                        <div class="scheme-actions">
+                            <a href="#" class="learn-more-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                            <button class="view-scheme-btn" onclick="openSchemeModal('kusum-yojana')">
+                                <i class="fas fa-image"></i> View Official Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rooftop Solar -->
+                <div class="initiative-card">
+                    <div class="card-header">
+                        <h3>Rooftop Solar</h3>
+                        <p class="scheme-tagline">Power Your Home with Solar</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="scheme-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <div class="scheme-details">
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li>40% subsidy for 1-3 kW</li>
+                                <li>20% subsidy for 4-10 kW</li>
+                                <li>Easy bank financing</li>
+                                <li>Maximum support of ₹3L</li>
+                            </ul>
+                        </div>
+                        <div class="scheme-actions">
+                            <a href="#" class="learn-more-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                            <button class="view-scheme-btn" onclick="openSchemeModal('rooftop-solar')">
+                                <i class="fas fa-image"></i> View Official Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solar Parks -->
+                <div class="initiative-card">
+                    <div class="card-header">
+                        <h3>Solar Parks</h3>
+                        <p class="scheme-tagline">Large Scale Solar Projects</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="scheme-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <div class="scheme-details">
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li>Large scale installations</li>
+                                <li>Infrastructure support</li>
+                                <li>Tax benefits</li>
+                                <li>Maximum support of ₹20L</li>
+                            </ul>
+                        </div>
+                        <div class="scheme-actions">
+                            <a href="#" class="learn-more-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                            <button class="view-scheme-btn" onclick="openSchemeModal('solar-park')">
+                                <i class="fas fa-image"></i> View Official Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="initiatives-cta">
+                <h3>Ready to Go Solar?</h3>
+                <p>Check your eligibility and start your solar journey today</p>
+                <a href="#calculator" class="cta-button">Check Eligibility</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scheme Details Modal -->
+    <div id="schemeModal" class="scheme-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Scheme Details</h3>
+                <span class="close-modal" onclick="closeSchemeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img id="schemeImage" src="" alt="Scheme Details" />
+                <div class="modal-actions">
+                    <button class="download-btn" onclick="downloadScheme()">
+                        <i class="fas fa-download"></i> Download Details
+                    </button>
+                    <button class="share-btn" onclick="shareScheme()">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Government Initiatives Section End -->
+
+    <!-- Services Start -->
+    <div class="services-section" id="services">
+        <div class="container">
+            <div class="services-wrapper">
+                <!-- Header Section -->
+                <div class="services-header text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="text-primary mb-2">Our Services</h6>
+                    <h1 class="display-6 mb-4">Complete Solar Energy Solutions</h1>
+                    <p class="lead mb-5">From consultation to installation and maintenance, we provide comprehensive solar energy services to power your sustainable future.</p>
+            </div>
+
+                <!-- Services Grid -->
+                <div class="services-grid">
+                    <!-- Service 1: Residential Solar -->
+                    <div class="service-card wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-image">
+                            <img src="img/img-600x400-1.jpg" alt="Residential Solar Installation">
+                            <div class="service-overlay">
+                            <div class="service-icon">
+                                    <i class="fas fa-home"></i>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="service-content">
+                            <h4>Residential Solar Installation</h4>
+                            <p>Transform your home with custom solar panel systems designed for maximum efficiency and savings on your electricity bills.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Custom Design & Planning</li>
+                                <li><i class="fas fa-check"></i> Professional Installation</li>
+                                <li><i class="fas fa-check"></i> 25-Year Warranty</li>
+                            </ul>
+                            <a href="#" class="service-btn">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                </div>
+                            </div>
+
+                    <!-- Service 2: Commercial Solar -->
+                    <div class="service-card wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="service-image">
+                            <img src="img/img-600x400-2.jpg" alt="Commercial Solar Solutions">
+                            <div class="service-overlay">
+                            <div class="service-icon">
+                                    <i class="fas fa-building"></i>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="service-content">
+                            <h4>Commercial Solar Solutions</h4>
+                            <p>Reduce operational costs for your business with large-scale solar installations tailored to commercial and industrial needs.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> ROI Analysis & Planning</li>
+                                <li><i class="fas fa-check"></i> Scalable Solutions</li>
+                                <li><i class="fas fa-check"></i> Tax Incentives Support</li>
+                            </ul>
+                            <a href="#" class="service-btn">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                </div>
+                            </div>
+
+                    <!-- Service 3: Solar Maintenance -->
+                    <div class="service-card wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-image">
+                            <img src="img/img-600x400-3.jpg" alt="Solar System Maintenance">
+                            <div class="service-overlay">
+                            <div class="service-icon">
+                                    <i class="fas fa-tools"></i>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="service-content">
+                            <h4>Solar System Maintenance</h4>
+                            <p>Keep your solar panels operating at peak efficiency with our comprehensive maintenance and monitoring services.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Regular Cleaning & Inspection</li>
+                                <li><i class="fas fa-check"></i> Performance Monitoring</li>
+                                <li><i class="fas fa-check"></i> Preventive Maintenance</li>
+                            </ul>
+                            <a href="#" class="service-btn">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                </div>
+                    </div>
+
+                    <!-- Service 4: Solar Consultation -->
+                    <div class="service-card wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="service-image">
+                            <img src="img/img-600x400-4.jpg" alt="Solar Consultation Services">
+                            <div class="service-overlay">
+                            <div class="service-icon">
+                                    <i class="fas fa-user-tie"></i>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="service-content">
+                            <h4>Solar Consultation & Design</h4>
+                            <p>Expert consultation to assess your energy needs and design the perfect solar solution for your property and budget.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Site Assessment</li>
+                                <li><i class="fas fa-check"></i> Energy Audit</li>
+                                <li><i class="fas fa-check"></i> Custom Proposals</li>
+                            </ul>
+                            <a href="#" class="service-btn">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                </div>
+            </div>
+
+                    <!-- Service 5: Solar Financing -->
+                    <div class="service-card wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="service-image">
+                            <img src="img/img-600x400-5.jpg" alt="Solar Financing Options">
+                            <div class="service-overlay">
+                                <div class="service-icon">
+                                    <i class="fas fa-credit-card"></i>
+        </div>
+    </div>
+            </div>
+                        <div class="service-content">
+                            <h4>Solar Financing Solutions</h4>
+                            <p>Flexible financing options including loans, leases, and power purchase agreements to make solar affordable for everyone.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Zero Down Payment Options</li>
+                                <li><i class="fas fa-check"></i> Competitive Interest Rates</li>
+                                <li><i class="fas fa-check"></i> Government Subsidy Support</li>
+                    </ul>
+                            <a href="#" class="service-btn">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                </div>
+            </div>
+
+                    <!-- Service 6: Smart Energy Management -->
+                    <div class="service-card wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="service-image">
+                            <img src="img/img-600x400-6.jpg" alt="Smart Energy Management">
+                            <div class="service-overlay">
+                                <div class="service-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                        </div>
+                    </div>
+                    </div>
+                        <div class="service-content">
+                            <h4>Smart Energy Management</h4>
+                            <p>Advanced monitoring systems and smart inverters to optimize your solar energy production and consumption in real-time.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Real-time Monitoring App</li>
+                                <li><i class="fas fa-check"></i> Performance Analytics</li>
+                                <li><i class="fas fa-check"></i> Smart Grid Integration</li>
+                            </ul>
+                            <a href="#" class="service-btn">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                </div>
+                        </div>
+                    </div>
+
+                <!-- Call to Action -->
+                <div class="services-cta text-center wow fadeInUp" data-wow-delay="0.7s">
+                    <h3>Ready to Start Your Solar Journey?</h3>
+                    <p>Get a personalized consultation and discover how much you can save with solar energy.</p>
+                    <a href="#contact" class="cta-button">
+                        <span>Get Free Consultation</span>
+                        <i class="fas fa-solar-panel"></i>
+                    </a>
+                    </div>
+                </div>
+                        </div>
+                    </div>
+    <!-- Services End -->
+
+
+
+
+    <!-- Contact Form Start -->
+    <div class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Header Section -->
+                <div class="contact-header text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="text-primary mb-2">Get In Touch</h6>
+                    <h1 class="display-6 mb-4">Ready to Go Solar?</h1>
+                    <p class="lead mb-5">Get a personalized solar solution for your home. Our experts will analyze your energy needs and provide a comprehensive quote tailored to your requirements.</p>
+                    </div>
+
+                <!-- Contact Info Cards -->
+                <div class="row g-4 mb-5 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                </div>
+                            <h5>Visit Our Office</h5>
+                            <p>32-4-2, Labbipet<br>Vijayawada, Andhra Pradesh<br>INDIA 520020</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                    </div>
+                            <h5>Call Us Today</h5>
+                            <p><a href="tel:+919704976969">+91 97049 76969</a><br>Free Consultation<br>Mon-Sat 9AM-6PM</p>
+                </div>
+                        </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                    </div>
+                            <h5>Email Us</h5>
+                            <p><a href="mailto:info@environenergy.com">info@environenergy.com</a><br>Quick Response<br>Within 24 Hours</p>
+                    </div>
+                </div>
+                        </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <form class="modern-contact-form" id="quote-form">
+                                <div class="form-header text-center mb-4">
+                                    <h3 class="text-primary">Request Your Free Solar Quote</h3>
+                                    <p class="text-muted">Fill out the form below and we'll get back to you within 24 hours</p>
+                    </div>
+                                
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name"><i class="fas fa-user text-primary"></i> Full Name</label>
+                                            <input type="text" id="name" name="name" class="form-input" placeholder="Enter your full name" required>
+                    </div>
+                </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email"><i class="fas fa-envelope text-primary"></i> Email Address</label>
+                                            <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
+            </div>
+        </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="mobile"><i class="fas fa-phone text-primary"></i> Mobile Number</label>
+                                            <input type="tel" id="mobile" name="mobile" class="form-input" placeholder="Enter your mobile number" required>
+    </div>
+                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="service"><i class="fas fa-solar-panel text-primary"></i> Service Type</label>
+                                            <select id="service" name="service" class="form-select" required>
+                                                <option value="">Choose a service</option>
+                                                <option value="residential">Residential Solar Installation</option>
+                                                <option value="commercial">Commercial Solar Solutions</option>
+                                                <option value="maintenance">Solar System Maintenance</option>
+                                                <option value="consultation">Solar Consultation</option>
+                                            </select>
+                </div>
+                                </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="budget"><i class="fas fa-rupee-sign text-primary"></i> Budget Range</label>
+                                            <select id="budget" name="budget" class="form-select">
+                                                <option value="">Select budget range</option>
+                                                <option value="1-3-lakhs">₹1 - ₹3 Lakhs</option>
+                                                <option value="3-5-lakhs">₹3 - ₹5 Lakhs</option>
+                                                <option value="5-10-lakhs">₹5 - ₹10 Lakhs</option>
+                                                <option value="10-plus-lakhs">₹10+ Lakhs</option>
+                                            </select>
+                                </div>
+                                </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="timeline"><i class="fas fa-calendar-alt text-primary"></i> Installation Timeline</label>
+                                            <select id="timeline" name="timeline" class="form-select">
+                                                <option value="">When do you want to install?</option>
+                                                <option value="immediate">Within 1 month</option>
+                                                <option value="quarter">1-3 months</option>
+                                                <option value="half-year">3-6 months</option>
+                                                <option value="planning">Just planning</option>
+                                    </select>
+                                </div>
+                                </div>
+                                <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="message"><i class="fas fa-comment-dots text-primary"></i> Project Details</label>
+                                            <textarea id="message" name="message" class="form-textarea" placeholder="Tell us about your property size, current electricity bill, energy requirements, or any specific needs..." rows="4"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="submit-btn-modern">
+                                            <span class="btn-text">Get Your Free Quote</span>
+                                            <i class="fas fa-arrow-right btn-icon"></i>
+                                        </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Contact Form End -->
+
+
+    <!-- Team Start
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h6 class="text-primary">Team Member</h6>
+                <h1 class="mb-4">Experienced Team Members</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item rounded overflow-hidden">
+                        <div class="d-flex">
+                            <img class="img-fluid w-75" src="img/team-1.jpg" alt="">
+                            <div class="team-social w-25">
+                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h5>Full Name</h5>
+                            <span>Designation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item rounded overflow-hidden">
+                        <div class="d-flex">
+                            <img class="img-fluid w-75" src="img/team-2.jpg" alt="">
+                            <div class="team-social w-25">
+                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h5>Full Name</h5>
+                            <span>Designation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item rounded overflow-hidden">
+                        <div class="d-flex">
+                            <img class="img-fluid w-75" src="img/team-3.jpg" alt="">
+                            <div class="team-social w-25">
+                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h5>Full Name</h5>
+                            <span>Designation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Team End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h6 class="text-primary">Testimonial</h6>
+                <h1 class="mb-4">What Our Clients Say!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                <div class="testimonial-item text-center">
+                    <div class="testimonial-img position-relative">
+                        <img class="img-fluid rounded-circle mx-auto mb-5" src="img/testimonial-1.jpg">
+                        <div class="btn-square bg-primary rounded-circle">
+                            <i class="fa fa-quote-left text-white"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-text text-center rounded p-4">
+                        <p>"Environ Energy transformed our home with a 6kW solar system. In just 8 months, we've saved over ₹25,000 on electricity bills! The installation was professional, and their team guided us through the entire PM Surya Ghar subsidy process. Highly recommended!"</p>
+                        <h5 class="mb-1">Rajesh Kumar</h5>
+                        <span class="fst-italic">Homeowner, Delhi</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <div class="testimonial-img position-relative">
+                        <img class="img-fluid rounded-circle mx-auto mb-5" src="img/testimonial-2.jpg">
+                        <div class="btn-square bg-primary rounded-circle">
+                            <i class="fa fa-quote-left text-white"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-text text-center rounded p-4">
+                        <p>"Our factory's 50kW solar installation by Environ Energy has been a game-changer. We've reduced our operational costs by 40% and achieved a positive ROI within 18 months. Their post-installation support is exceptional!"</p>
+                        <h5 class="mb-1">Priya Sharma</h5>
+                        <span class="fst-italic">Manufacturing Business Owner</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <div class="testimonial-img position-relative">
+                        <img class="img-fluid rounded-circle mx-auto mb-5" src="img/testimonial-3.jpg">
+                        <div class="btn-square bg-primary rounded-circle">
+                            <i class="fa fa-quote-left text-white"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-text text-center rounded p-4">
+                        <p>"From consultation to commissioning, Environ Energy delivered excellence. Our 10kW rooftop system generates 1,200 units monthly, and we even sell excess power back to the grid. Best investment we've made for our home!"</p>
+                        <h5 class="mb-1">Amit Patel</h5>
+                        <span class="fst-italic">IT Professional, Mumbai</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <div class="testimonial-img position-relative">
+                        <img class="img-fluid rounded-circle mx-auto mb-5" src="img/testimonial-1.jpg">
+                        <div class="btn-square bg-primary rounded-circle">
+                            <i class="fa fa-quote-left text-white"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-text text-center rounded p-4">
+                        <p>"Environ Energy made going solar so simple! Their calculator helped us understand savings upfront, and the 3kW system they installed has eliminated our electricity bills completely. The PM Surya Ghar subsidy made it very affordable."</p>
+                        <h5 class="mb-1">Sunita Verma</h5>
+                        <span class="fst-italic">Teacher, Pune</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <div class="testimonial-img position-relative">
+                        <img class="img-fluid rounded-circle mx-auto mb-5" src="img/testimonial-2.jpg">
+                        <div class="btn-square bg-primary rounded-circle">
+                            <i class="fa fa-quote-left text-white"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-text text-center rounded p-4">
+                        <p>"Our apartment complex installed a 100kW system with Environ Energy. The entire process was seamless, from approvals to installation. We now have 24/7 power backup and significant savings on common area electricity costs."</p>
+                        <h5 class="mb-1">Dr. Vikram Singh</h5>
+                        <span class="fst-italic">Society Chairman, Gurgaon</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <!-- Footer Start -->
+    <footer class="simple-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <img src="img/logo.png" alt="Environ Energy" class="footer-logo">
+                        <span class="brand-name">Environ Energy</span>
+                    </div>
+                    <p class="brand-description">Empowering homes to achieve project success through effective solar solutions and collaboration.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>SOLUTIONS</h4>
+                        <ul>
+                            <li><a href="#calculator">Solar Calculator <span class="new-badge">NEW</span></a></li>
+                            <li><a href="#services">Installation Services</a></li>
+                            <li><a href="#about">System Monitoring</a></li>
+                            <li><a href="#gov-initiatives">Government Schemes</a></li>
+                        </ul>
+                        </div>
+                    
+
+                    
+                    <div class="footer-column">
+                        <h4>COMPANY</h4>
+                        <ul>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#">Careers <span class="new-badge">NEW</span></a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                        </div>
+                        </div>
+                        </div>
+            
+            <div class="footer-bottom">
+            <div class="copyright">
+                    <p>&copy; 2025 Environ Energy. All Rights Reserved.</p>
+                    </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Settings</a>
+                        </div>
+                    </div>
+                </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- EmailJS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
