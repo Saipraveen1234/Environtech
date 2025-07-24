@@ -66,7 +66,8 @@
 
     <!-- Header Start -->
     <header class="header">
-      <div class="header-container">
+      <!-- Separate Logo -->
+      <div class="logo-section">
         <div class="logo">
           <img
             src="img/Logo-3.png"
@@ -74,35 +75,41 @@
             class="logo-img"
           />
         </div>
-        <nav class="nav-menu">
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a href="#hero" class="nav-link active">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="#about" class="nav-link">About</a>
-            </li>
-            <li class="nav-item">
-              <a href="#gov-initiatives" class="nav-link">Schemes</a>
-            </li>
-            <li class="nav-item">
-              <a href="#services" class="nav-link">Services</a>
-            </li>
-            <li class="nav-item">
-              <a href="#solutions" class="nav-link">Solutions</a>
-            </li>
-            <li class="nav-item">
-              <a href="#contact" class="nav-link">Contact</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="header-actions">
-          <a href="#calculator" class="estimate-btn">Get Solar Estimate</a>
-          <button class="mobile-menu-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+      </div>
+
+      <!-- Navigation Bar (Reduced Width, Right Side) -->
+      <div class="nav-section">
+        <div class="header-container">
+          <nav class="nav-menu">
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a href="#hero" class="nav-link active">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#about" class="nav-link">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="#gov-initiatives" class="nav-link">Schemes</a>
+              </li>
+              <li class="nav-item">
+                <a href="#services" class="nav-link">Services</a>
+              </li>
+              <li class="nav-item">
+                <a href="#solutions" class="nav-link">Solutions</a>
+              </li>
+              <li class="nav-item">
+                <a href="#contact" class="nav-link">Contact</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header-actions">
+            <a href="#calculator" class="estimate-btn">Get Solar Estimate</a>
+            <button class="mobile-menu-btn">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
         </div>
       </div>
     </header>
@@ -110,7 +117,19 @@
 
     <!-- Video Background Section Start -->
     <section id="hero" class="hero-video-section">
-      <video class="hero-video" loop autoplay muted playsinline>
+      <video
+        class="hero-video"
+        loop
+        autoplay
+        muted
+        playsinline
+        poster="img/solar-background.jpg"
+        preload="metadata"
+      >
+        <!-- Replace with your new solar panel video -->
+        <source src="img/solar-hero-video.mp4" type="video/mp4" />
+        <!-- Fallback videos -->
+        <source src="img/video" type="video/mp4" />
         <source src="img/S-vid.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -143,7 +162,11 @@
                 </select>
               </div>
 
-              <div class="input-group" id="monthly-bill-section">
+              <div
+                class="input-group"
+                id="monthly-bill-section"
+                style="display: none"
+              >
                 <label for="monthly-bill"
                   >Enter Your Monthly Electricity Bill (in ₹)</label
                 >
@@ -156,24 +179,20 @@
                 />
               </div>
 
-              <div
-                class="input-group"
-                id="system-size-section"
-                style="display: none"
-              >
+              <div class="input-group" id="system-size-section">
                 <label for="system-size-input">Enter System Size (kW)</label>
                 <input
                   type="number"
                   id="system-size-input"
                   min="0"
                   step="0.1"
-                  value="1"
+                  value="3"
                 />
               </div>
 
               <div class="calculation-toggle">
                 <a href="#" id="toggle-calculation-method"
-                  >Or calculate savings using System size(kW)</a
+                  >Or calculate savings using Monthly Bill</a
                 >
               </div>
             </div>
@@ -591,35 +610,53 @@
         </div>
 
         <div class="initiatives-grid">
-          <!-- PM Suryoday Yojana -->
+          <!-- PM Surya Ghar Muft Bijli Yojana -->
           <div class="initiative-card featured">
             <div class="card-header">
-              <div class="scheme-badge">New</div>
-              <h3>PM Suryoday Yojana</h3>
-              <p class="scheme-tagline">1 Crore Homes to Go Solar</p>
+              <div class="scheme-badge">Official</div>
+              <h3>PM-SURYA GHAR MUFT BIJLI YOJANA</h3>
+              <p class="scheme-tagline">
+                "Your Roof, Your Power: Go Solar Today!"
+              </p>
             </div>
             <div class="card-body">
               <div class="scheme-highlights">
                 <div class="highlight-item">
-                  <i class="fas fa-home"></i>
-                  <span>1 Crore Homes</span>
+                  <i class="fas fa-percentage"></i>
+                  <span>7% Interest Rate</span>
                 </div>
                 <div class="highlight-item">
                   <i class="fas fa-rupee-sign"></i>
-                  <span>40% Subsidy</span>
+                  <span>₹78,000 Subsidy</span>
                 </div>
                 <div class="highlight-item">
-                  <i class="fas fa-bolt"></i>
-                  <span>300 Units Free</span>
+                  <i class="fas fa-battery-full"></i>
+                  <span>Save up to 90%</span>
                 </div>
               </div>
               <div class="scheme-details">
-                <h4>Key Benefits</h4>
+                <h4>Amazing Benefits Through ENVIRON ENERGY TECH</h4>
                 <ul>
-                  <li>Substantial reduction in electricity bills</li>
-                  <li>Government subsidy up to 40%</li>
-                  <li>Free electricity up to 300 units</li>
-                  <li>Easy financing options</li>
+                  <li>
+                    <strong>Low Interest Rate:</strong> Only 7% bank interest
+                  </li>
+                  <li>
+                    <strong>High Loan Facility:</strong> Up to 100% loan
+                    available
+                  </li>
+                  <li>
+                    <strong>Easy Repayment:</strong> 10-year easy installment
+                    plan
+                  </li>
+                  <li>
+                    <strong>Government Subsidy:</strong> Get Rs 78,000/- subsidy
+                  </li>
+                  <li>
+                    <strong>Power Savings:</strong> Save up to 90% on power bill
+                  </li>
+                  <li>
+                    <strong>30 Year Warranty:</strong> Long-term peace of mind
+                  </li>
                 </ul>
               </div>
               <div class="scheme-actions">
@@ -630,7 +667,7 @@
                   class="view-scheme-btn"
                   onclick="openSchemeModal('pm-suryoday')"
                 >
-                  <i class="fas fa-image"></i> View Official Details
+                  <i class="fas fa-image"></i> View Brochure
                 </button>
               </div>
             </div>
@@ -738,8 +775,32 @@
 
         <div class="initiatives-cta">
           <h3>Ready to Go Solar?</h3>
-          <p>Check your eligibility and start your solar journey today</p>
-          <a href="#calculator" class="cta-button">Check Eligibility</a>
+          <p>
+            "The Future is Solar — And It Starts Now." Check your eligibility
+            and start your solar journey today with PM-SURYA GHAR MUFT BIJLI
+            YOJANA
+          </p>
+          <a
+            href="#contact"
+            class="cta-button"
+            onclick="
+              console.log('Button clicked!'); 
+              const contact = document.getElementById('contact');
+              if (contact) {
+                contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                return false;
+              }
+              return true;
+            "
+            style="
+              display: inline-block;
+              position: relative;
+              z-index: 1000;
+              cursor: pointer;
+              text-decoration: none;
+            "
+            >Check Eligibility</a
+          >
         </div>
       </div>
     </section>
@@ -1071,9 +1132,16 @@
                 </div>
                 <div class="client-logo-item">
                   <div class="logo-placeholder">
-                    <i class="fas fa-building"></i>
+                    <i class="fas fa-credit-card"></i>
                   </div>
-                  <h5>ICICI Bank</h5>
+                  <h5>Bajaj Finserv</h5>
+                  <p>Financial Partner</p>
+                </div>
+                <div class="client-logo-item">
+                  <div class="logo-placeholder">
+                    <i class="fas fa-university"></i>
+                  </div>
+                  <h5>Canara Bank</h5>
                 </div>
               </div>
             </div>

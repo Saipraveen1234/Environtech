@@ -116,11 +116,32 @@
 .header {
   position: fixed;
   top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 95%;
-  max-width: 1400px;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3%;
+  transition: all 0.3s ease;
+}
+
+.header.scrolled {
+  top: 10px;
+}
+
+/* Logo Section - Separate from Navigation */
+.logo-section {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Navigation Section - Right Side with Reduced Width */
+.nav-section {
+  max-width: 70%;
+  min-width: 600px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -130,10 +151,28 @@
   transition: all 0.3s ease;
 }
 
-.header.scrolled {
-  top: 10px;
+.header.scrolled .nav-section {
   background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Adjust header container within nav section */
+.nav-section .header-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  min-height: 80px;
+}
+
+/* Adjust navigation menu within nav section */
+.nav-section .nav-menu {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  margin: 0 20px;
 }
 
 .header-container {
@@ -152,7 +191,7 @@
 }
 
 .logo-img {
-  height: 85px;
+  height: 120px;
   width: auto;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -3424,6 +3463,12 @@
   text-decoration: none;
   transition: all 0.3s ease;
   display: inline-block;
+  position: relative;
+  z-index: 100;
+  cursor: pointer;
+  pointer-events: auto;
+  border: none;
+  outline: none;
 }
 
 .initiatives-cta .cta-button:hover {

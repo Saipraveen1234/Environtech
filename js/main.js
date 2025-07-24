@@ -297,14 +297,14 @@
     const systemSizeInput = $("#system-size-input");
     const monthlyBillInput = $("#monthly-bill");
 
-    // Set default state (Monthly bill mode)
-    systemSizeSection.hide();
-    monthlyBillSection.show();
-    monthlyBillInput.val(2500);
-    calculateFromMonthlyBill(2500);
+    // Set default state (System size mode)
+    systemSizeSection.show();
+    monthlyBillSection.hide();
+    systemSizeInput.val(3);
+    handleSystemSizeInput();
 
     // Toggle between calculation methods
-    let isMonthlyBillMode = true;
+    let isMonthlyBillMode = false;
 
     toggleLink.on("click", function (e) {
       e.preventDefault();
@@ -348,6 +348,29 @@
     initializeCalculator();
     initializeSchemeNavigation();
     initializeCalculatorAnimations();
+
+    // Add smooth scrolling for CTA buttons and other anchor links
+    $('a[href^="#"]:not(.nav-link)').on("click", function (e) {
+      // Skip if it's a modal trigger, empty hash, or other special links
+      if (
+        $(this).attr("href") === "#" ||
+        $(this).hasClass("close-modal") ||
+        $(this).attr("onclick")
+      ) {
+        return;
+      }
+
+      e.preventDefault();
+      var target = $($(this).attr("href"));
+      if (target.length) {
+        $("html, body").animate(
+          {
+            scrollTop: target.offset().top - 100,
+          },
+          500
+        );
+      }
+    });
   });
 
   // Enhanced Calculator Animations
