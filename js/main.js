@@ -280,12 +280,44 @@
   }
 
   function handleSystemSizeInput() {
-    const systemSize = parseFloat($("#system-size-input").val()) || 0;
+    const inputField = $("#system-size-input");
+    let inputValue = inputField.val();
+
+    // Remove leading zeros while preserving decimal numbers
+    if (inputValue && inputValue !== "0" && inputValue !== "0.") {
+      // Convert to number and back to string to remove leading zeros
+      const numValue = parseFloat(inputValue);
+      if (!isNaN(numValue) && numValue > 0) {
+        const cleanValue = numValue.toString();
+        // Only update if the value actually changed to avoid cursor jumping
+        if (cleanValue !== inputValue) {
+          inputField.val(cleanValue);
+        }
+      }
+    }
+
+    const systemSize = parseFloat(inputField.val()) || 0;
     updateCalculatorResults(Math.max(0, systemSize));
   }
 
   function handleMonthlyBillInput() {
-    const monthlyBill = parseFloat($("#monthly-bill").val()) || 0;
+    const inputField = $("#monthly-bill");
+    let inputValue = inputField.val();
+
+    // Remove leading zeros while preserving decimal numbers
+    if (inputValue && inputValue !== "0" && inputValue !== "0.") {
+      // Convert to number and back to string to remove leading zeros
+      const numValue = parseFloat(inputValue);
+      if (!isNaN(numValue) && numValue > 0) {
+        const cleanValue = numValue.toString();
+        // Only update if the value actually changed to avoid cursor jumping
+        if (cleanValue !== inputValue) {
+          inputField.val(cleanValue);
+        }
+      }
+    }
+
+    const monthlyBill = parseFloat(inputField.val()) || 0;
     calculateFromMonthlyBill(Math.max(0, monthlyBill));
   }
 
@@ -369,6 +401,26 @@
           },
           500
         );
+      }
+    });
+
+    // Remove leading zeros from all number inputs globally
+    $('input[type="number"]').on("input", function () {
+      const $this = $(this);
+      let value = $this.val();
+
+      // Remove leading zeros while preserving decimal numbers and special cases
+      if (value && value !== "0" && value !== "0." && value.length > 1) {
+        // Check if it starts with zero followed by a digit (not decimal)
+        if (value.match(/^0+\d/) && !value.match(/^0\./)) {
+          const numValue = parseFloat(value);
+          if (!isNaN(numValue)) {
+            const cleanValue = numValue.toString();
+            if (cleanValue !== value) {
+              $this.val(cleanValue);
+            }
+          }
+        }
       }
     });
   });
