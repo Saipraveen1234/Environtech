@@ -329,6 +329,8 @@
     const systemSizeInput = $("#system-size-input");
     const monthlyBillInput = $("#monthly-bill");
 
+
+
     // Set default state (System size mode)
     systemSizeSection.show();
     monthlyBillSection.hide();
@@ -369,10 +371,7 @@
       }
     });
 
-    // Button Handlers
-    $("#get-quote").on("click", function () {
-      openQuoteModal();
-    });
+
   }
 
   // Initialize Calculator when document is ready
@@ -432,21 +431,7 @@
       $(this).find("::before").css("left", "100%");
     });
 
-    // Add click animation for buttons
-    $(".calculator-actions .btn").on("click", function (e) {
-      const button = $(this);
-      const ripple = $('<span class="ripple"></span>');
 
-      button.append(ripple);
-      ripple.css({
-        left: e.offsetX + "px",
-        top: e.offsetY + "px",
-      });
-
-      setTimeout(() => {
-        ripple.remove();
-      }, 600);
-    });
 
     // Add tooltip functionality
     $(".result-card[data-tooltip]")
@@ -709,52 +694,7 @@
     window.addEventListener("scroll", setActiveLink);
   });
 
-  // Quote Modal Functions
-  function openQuoteModal() {
-    // Get current calculator values
-    const systemSize = $("#system-size").text();
-    const energyGenerated = $("#energy-generated").text();
-    const annualSavings = $("#annual-savings").text();
-    const price = $("#price-excluding-subsidy").text();
-    const subsidy = $("#subsidy").text();
 
-    // Populate modal with calculator values
-    $("#quote-system-size").text(systemSize);
-    $("#quote-energy").text(energyGenerated);
-    $("#quote-savings").text(annualSavings);
-    $("#quote-price").text(price);
-    $("#quote-subsidy").text(subsidy);
-
-    // Get current system size as number to check if > 10kW
-    const systemSizeNum = parseFloat(systemSize);
-
-    // Show/hide price and subsidy items based on system size (same logic as calculator)
-    if (systemSizeNum > 10) {
-      $("#quote-price-item").hide();
-      $("#quote-subsidy-item").hide();
-    } else {
-      $("#quote-price-item").show();
-      $("#quote-subsidy-item").show();
-    }
-
-    // Pre-fill monthly bill if available
-    const monthlyBill = $("#monthly-bill").val();
-    if (monthlyBill) {
-      $("#quote-monthly-bill").val(monthlyBill);
-    }
-
-    // Show modal
-    $("#quoteModal").addClass("active").show();
-    $("body").css("overflow", "hidden"); // Prevent background scrolling
-  }
-
-  function closeQuoteModal() {
-    $("#quoteModal").removeClass("active");
-    setTimeout(() => {
-      $("#quoteModal").hide();
-      $("body").css("overflow", "auto"); // Restore scrolling
-    }, 300);
-  }
 
   /*
     ====================================================================
@@ -844,186 +784,12 @@
     }
   }
 
-  // Quote form submission
-  function handleQuoteFormSubmission() {
-    $("#quoteForm").on("submit", function (e) {
-      e.preventDefault();
 
-      // Get form data
-      const formData = {
-        // System Details
-        systemSize: $("#quote-system-size").text(),
-        annualEnergy: $("#quote-energy").text(),
-        annualSavings: $("#quote-savings").text(),
-        totalCost: $("#quote-price").text(),
-        subsidy: $("#quote-subsidy").text(),
 
-        // Contact Information
-        name: $("#quote-name").val(),
-        email: $("#quote-email").val(),
-        phone: $("#quote-phone").val(),
-        city: $("#quote-city").val(),
-        address: $("#quote-address").val(),
-        roofType: $("#quote-roof-type").val(),
-        propertyType: $("#quote-property-type").val(),
-        monthlyBill: $("#quote-monthly-bill").val(),
-        timeline: $("#quote-timeline").val(),
-        notes: $("#quote-notes").val(),
-      };
 
-      // Basic validation
-      if (
-        !formData.name ||
-        !formData.email ||
-        !formData.phone ||
-        !formData.city
-      ) {
-        alert("Please fill in all required fields (marked with *)");
-        return;
-      }
-
-      // Email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
-        alert("Please enter a valid email address");
-        return;
-      }
-
-      // Phone validation (basic)
-      const phoneRegex = /^[0-9]{10}$/;
-      if (!phoneRegex.test(formData.phone.replace(/\D/g, ""))) {
-        alert("Please enter a valid 10-digit phone number");
-        return;
-      }
-
-      // Show loading state
-      $(".btn-submit")
-        .html('<i class="fas fa-spinner fa-spin"></i> Submitting...')
-        .prop("disabled", true);
-
-      // Send email using EmailJS
-      sendQuoteEmail(formData);
-    });
-  }
-
-  // Send email using EmailJS
-  function sendQuoteEmail(formData) {
-    // Check if EmailJS is configured
-    if (EMAIL_CONFIG.serviceID === "YOUR_SERVICE_ID") {
-      // Show configuration message if not set up
-      setTimeout(() => {
-        alert(
-          `EmailJS Configuration Required!\n\nPlease set up EmailJS by:\n1. Creating an account at emailjs.com\n2. Replacing the configuration values in main.js\n3. Creating an email template\n\nFor now, showing form data:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCity: ${formData.city}\nSystem Size: ${formData.systemSize}\nAnnual Savings: ${formData.annualSavings}`
-        );
-
-        // Reset form and close modal
-        $("#quoteForm")[0].reset();
-        closeQuoteModal();
-
-        // Reset button
-        $(".btn-submit")
-          .html('<i class="fas fa-paper-plane"></i> Get Free Quote')
-          .prop("disabled", false);
-
-        console.log("Quote request data:", formData);
-      }, 1000);
-      return;
-    }
-
-    // Prepare email template parameters
-    const templateParams = {
-      // Customer Information
-      customer_name: formData.name,
-      customer_email: formData.email,
-      customer_phone: formData.phone,
-      customer_city: formData.city,
-      customer_address: formData.address || "Not provided",
-      roof_type: formData.roofType || "Not specified",
-      property_type: formData.propertyType || "Not specified",
-      monthly_bill: formData.monthlyBill || "Not provided",
-      installation_timeline: formData.timeline || "Not specified",
-      customer_notes: formData.notes || "No additional notes",
-
-      // Solar System Details
-      system_size: formData.systemSize,
-      annual_energy: formData.annualEnergy,
-      annual_savings: formData.annualSavings,
-      total_cost: formData.totalCost,
-      government_subsidy: formData.subsidy,
-
-      // Additional Info
-      submission_date: new Date().toLocaleString(),
-      form_type: "Solar Quote Request",
-    };
-
-    // Send email
-    emailjs
-      .send(EMAIL_CONFIG.serviceID, EMAIL_CONFIG.templateID, templateParams)
-      .then(
-        function (response) {
-          console.log("Email sent successfully:", response);
-
-          // Success message
-          alert(
-            `Thank you ${formData.name}! Your quote request has been submitted successfully.\n\nOur solar experts will contact you within 24 hours at ${formData.phone}.\n\nSystem Details:\n• Size: ${formData.systemSize}\n• Annual Savings: ${formData.annualSavings}\n\nWe'll provide a detailed site assessment and customized proposal for your property.`
-          );
-
-          // Reset form and close modal
-          $("#quoteForm")[0].reset();
-          closeQuoteModal();
-        },
-        function (error) {
-          console.error("Email sending failed:", error);
-
-          // Error message
-          alert(
-            "Sorry, there was an error sending your request. Please try again or contact us directly."
-          );
-        }
-      )
-      .finally(function () {
-        // Reset button
-        $(".btn-submit")
-          .html('<i class="fas fa-paper-plane"></i> Get Free Quote')
-          .prop("disabled", false);
-      });
-  }
-
-  // Modal event listeners
-  $(document).ready(function () {
-    // Initialize EmailJS
-    initializeEmailJS();
-
-    // Close modal when clicking X
-    $("#closeQuoteModal").on("click", closeQuoteModal);
-
-    // Close modal when clicking outside
-    $("#quoteModal").on("click", function (e) {
-      if (e.target === this) {
-        closeQuoteModal();
-      }
-    });
-
-    // Close modal with Escape key
-    $(document).on("keydown", function (e) {
-      if (e.key === "Escape" && $("#quoteModal").hasClass("active")) {
-        closeQuoteModal();
-      }
-    });
-
-    // Initialize quote form handler
-    handleQuoteFormSubmission();
-  });
 })(jQuery);
 
-// Global functions for inline HTML handlers
-function closeQuoteModal() {
-  $("#quoteModal").removeClass("active");
-  setTimeout(() => {
-    $("#quoteModal").hide();
-    $("body").css("overflow", "auto"); // Restore scrolling
-  }, 300);
-}
+
 
 // Newsletter Form Functionality
 function initializeNewsletterForm() {
